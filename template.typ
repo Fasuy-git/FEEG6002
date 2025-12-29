@@ -2,6 +2,10 @@
 
 #import "@preview/equate:0.3.2": equate
 
+#import "@preview/codly:1.3.0": *
+#import "@preview/codly-languages:0.1.1": *
+
+
 #let lecture(title, level, week-num) = {
   // Define week tag box
   let week-tag = box(
