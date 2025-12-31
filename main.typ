@@ -100,4 +100,5 @@
 #set math.vec(delim: "[")
 
 #include "lecture_1/lecture_1.typ"
-
+#include "lecture_2/lecture_2.typ"
+#include "lecture_4/lecture_4.typ"

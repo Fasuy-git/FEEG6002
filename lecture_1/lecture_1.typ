@@ -24,13 +24,13 @@ The code required to create an executable file which prints hello world to the c
   kind: figure,
 )<1-hello-world-code>
 
-- *Line 1*: Imports the header file called the *standard input output library* which contains the `printf` function that is utilized later in the code. This line is ran before the code is compiled and pastes in all of the functions within the header file.
+- *Line 1*: Imports the header file called the *standard input output library* which contains the *`printf`* function that is utilized later in the code. This line is ran before the code is compiled and pastes in all of the functions within the header file.
 
-- *Line 3*: Defines the `main` function which is always where execution starts for a C program. The function is defined as an integer using `int` and returns 0 to the OS upon successful execution.
+- *Line 3*: Defines the *`main`* function which is always where execution starts for a C program. The function is defined as an integer using *`int`* and returns 0 to the OS upon successful execution.
 
-- *Line 5* Utilizes the `printf` function to print "hello world" to the terminal. This function requires `\n` at the end to start a new line and each line of a C program requires a semicolon to signify the end of a line of code.
+- *Line 5* Utilizes the *`printf`* function to print "hello world" to the terminal. This function requires *`\n`* at the end to start a new line and each line of a C program requires a semicolon to signify the end of a line of code.
 
-If this code is created as a C source file in Quincy it can be *saved* using `ctrl + s`, *compiled* using `F5` and than *executed* using `F9`. This will print the hello world text in the Quincy terminal as shown in *@1-hello-world-output*.
+If this code is created as a C source file in Quincy it can be *saved* using *`ctrl + s`*, *compiled* using *`F5`* and than *executed* using *`F9`*. This will print the hello world text in the Quincy terminal as shown in *@1-hello-world-output*.
 
 #figure(
   image("images/1-hello-world-output.png"),
@@ -39,15 +39,15 @@ If this code is created as a C source file in Quincy it can be *saved* using `ct
   kind: figure,
 )<1-hello-world-output>
 
-When pressing `F5` Quincy sends a command to the C compiler which contains the followwing key flags:
+When pressing *`F5`* Quincy sends a command to the C compiler which contains the following key flags:
 
-- `-ansi`: Ensures compatibility with C90 standard.
-- `-Wall`: Enables all warnings.
-- `-pedantic`: Issues all warnings ISO C requires (C90 when using -ansi).
+- *`-ansi`*: Ensures compatibility with C90 standard.
+- *`-Wall`*: Enables all warnings.
+- *`-pedantic`*: Issues all warnings ISO C requires (C90 when using -ansi).
 
 == Using the Command Line
 
-The command line is a useful tool for interfacing with the operating system in a low level way. There exist many different terminals, some common window terminal commands are shown below:
+The command line is a *non-graphical way of working with a computer, via screen and keyboard.* There exist many different terminals, some common window terminal commands are shown below:
 
 - `dir` : Display all files in the current folder.
 - `cd \` : Navigate to root folder.
