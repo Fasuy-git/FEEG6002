@@ -113,3 +113,5 @@ As shown in *@9-dynamic-vs-static*, dynamic memory must be manually allocated an
 )<9-dynamic-memory>
 
 Note that on line 7 of *@9-dynamic-memory*, the type of pointer for the *`malloc`* command must be casted, that is because *`malloc`* on its own returns a void pointer type.
+
+#pagebreak()
