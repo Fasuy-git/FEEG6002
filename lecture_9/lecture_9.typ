@@ -18,7 +18,6 @@ Whenever an array is passed into a function , a copy of the array is not sent to
 
 The *`sizeof`* operator is used tor return the length of a datatype in bytes. This function is included in the standard input output library and is crucial for structs and dynamic memory allocation. An example usecase for this variable is shown in *@9-sizeof*.
 
-
 #figure(
   grid(
     columns: (0.7fr, 0.3fr),
@@ -57,3 +56,60 @@ The *`sizeof`* operator is used tor return the length of a datatype in bytes. Th
   supplement: [Figure],
   kind: figure,
 )<9-sizeof>
+
+== Dynamic Memory
+
+So far the memory allocation that has been used is static, meaning that once it has been allocated it cannot be changed. However there also exists dynamic memory, some of the key differences between the two memory allocations are shown in *@9-dynamic-vs-static*.
+
+#figure(
+  table(
+    columns: (5cm, 5cm, 5cm),
+    fill: (column, row) => if row == 0 { gray },
+    table.header([*Feature*], [*Static*], [*Dynamic*]),
+
+    [Allocation], [Automatic], [Manual (*`malloc`*)],
+    [Speed], [Very fast], [Slower],
+    [Size], [Small], [Large],
+    [Lifetime], [Function scope], [Until *`free()`*],
+    [Control], [Compiler], [Programmer],
+  ),
+  caption: [Static vs Dynamic memory allocation.],
+)<9-dynamic-vs-static>
+
+As shown in *@9-dynamic-vs-static*, dynamic memory must be manually allocated and freed by the programmer within the code. Not doing this will result in memory leeks, if this is forgotten in a loop, then all of the memory of the heap can be allocated. Whenever dynamic memory allocation is used, a conditional is required to asses if there is any space left on the heap before allocation. Some example code using dynamic memory allocation is shown below *@9-dynamic-memory*.
+
+#figure(
+  grid(
+    columns: (0.7fr, 0.3fr),
+    [```C
+    #include <stdio.h>
+    #include <stdlib.h> /* provides malloc */
+
+    int main(void) {
+        int *pi;
+
+        pi = (int *)malloc(sizeof(int));
+        if (pi == NULL) {
+            printf("ERROR: Out of memory\n");
+            return 1;
+        }
+
+        *pi = 5;
+        printf("%d\n", *pi);
+
+        free((void *)pi);
+
+        return 0;
+    }
+    ```],
+    [```sh
+    C:\.\dynamic_memory.exe
+    5
+    ```],
+  ),
+  caption: [C code which utilizes dynamic memory allocation.],
+  supplement: [Figure],
+  kind: figure,
+)<9-dynamic-memory>
+
+Note that on line 7 of *@9-dynamic-memory*, the type of pointer for the *`malloc`* command must be casted, that is because *`malloc`* on its own returns a void pointer type.
