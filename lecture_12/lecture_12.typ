@@ -109,3 +109,5 @@ As was shown in previous lectures the *`scanf`* function can be used to read a d
   supplement: [Figure],
   kind: figure,
 )<12-fscanf>
+
+#pagebreak()
