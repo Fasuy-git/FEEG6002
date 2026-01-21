@@ -7,7 +7,7 @@
 
 == Returning 2D Arrays From Functions
 
-As was seen before, it is not possible to directly return arrays from a C function. Instead a pointer to the array can be manipulated and returned. An example of this is shown in [] which uses the double pointer syntax to define a 2d array within the function and return that.
+As was seen before, it is not possible to directly return arrays from a C function. Instead a pointer to the array can be manipulated and returned. An example of this is shown in *@17-return-2d-array* which uses the double pointer syntax to define a 2d array within the function and return that.
 
 #figure(
   [```C
