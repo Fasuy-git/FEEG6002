@@ -63,4 +63,65 @@ Command line arguments can be passed into a shell script, these are numbered 0-n
   kind: figure,
 )<15-16-shell-command-args>
 
+== Dependency Graphs and Make Files
 
+An intuitive way of thinking about a program is through the use of a flowchart, which defines the path taken between a source and a target. An example of a flowchart for a simple calculation and plotting program is shown in *@15-16-flowchart*.
+
+#figure(
+  image("images/16-flowchart.png", width: 70%),
+  caption: [An example of a flowchart for a simple plotting program.],
+  supplement: [Figure],
+  kind: figure,
+) <15-16-flowchart>
+
+However, for make files it makes more sense to use a dependency graph, which clearly defines the dependencies between different sections of the program, shown in *@15-16-dependency-graph* for the flowchart that was shown in *@15-16-flowchart*.
+
+#figure(
+  image("images/16-dependancy-grpah.png", width: 70%),
+  caption: [An example of a dependency graph for the program shown in *@15-16-flowchart*.],
+  supplement: [Figure],
+  kind: figure,
+) <15-16-dependency-graph>
+
+The basic syntax for a make file is shown in *@15-16-basic-make-syntax* with the target being the target file, the source being teh source file, the tab being a space and the command being teh command needed to generate the target file
+
+
+#figure(
+  [```make
+  target1: source1 source2
+  [tab] command1a
+  [tab] command1b
+  target2: target1
+  [tab] command2
+  ```],
+  caption: [Basic syntax for a make file.],
+  supplement: [Figure],
+  kind: figure,
+)<15-16-basic-make-syntax>
+
+To create the target from the make file, the command *`make target`* is ran. As shown in *@15-16-basic-make-syntax*, multiple sources can be set to one target file. Now all the essential building blocks are defined the make file for the dependency graph shown in *@15-16-dependency-graph* can be created, this is shown in *@15-16-dependency-graph-makefile*.
+
+#figure(
+  [```make
+  Figure.png: plotfile.py data.txt
+    python plotfile.py data.txt
+
+  data.txt: tabulatesin
+    ./tabulatesin > data.txt
+
+  tabulatesin: tabulatesin.c
+    gcc -Wall -ansi -pedantic -lm -o tabulatesin tabulatesin.c
+
+  clean:
+    rm data.txt tabulatesin plotfile.py
+
+  plotfile.py:
+    wget http://www.soton.ac.uk/~rpb/feeg6002/tools/plotfile.py
+
+  ```],
+  caption: [Makefile for the dependency graph shown in  *@15-16-dependency-graph*.],
+  supplement: [Figure],
+  kind: figure,
+)<15-16-dependency-graph-makefile>
+
+#pagebreak()
